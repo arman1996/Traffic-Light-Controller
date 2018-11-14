@@ -1,5 +1,5 @@
 # Traffic-Light-Controller
-Macquarie Traffic Light Controller (ELEC343)
+Macquarie Traffic Light Controller (ELEC343)<br/>
 <br/>
 The following files have code:<br/>
 Controller.vhd<br/>
