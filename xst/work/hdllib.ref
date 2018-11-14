@@ -1,0 +1,5 @@
+AR clock_manager behavioral "C:/Users/Xilinx Projects/Clock_Manager.vhd" sub00/vhpl01 1541436615
+EN clock_manager NULL "C:/Users/Xilinx Projects/Clock_Manager.vhd" sub00/vhpl00 1541436614
+EN lightcontroller NULL "C:/Users/Xilinx Projects/KomsTrafficLights/lightController.vhd" sub00/vhpl03 1540869577
+EN controller NULL "C:/Users/Xilinx Projects/Traffic_Light_Controller/Controller.vhd" sub00/vhpl02 1541436616
+AR controller behavioral "C:/Users/Xilinx Projects/Traffic_Light_Controller/Controller.vhd" sub00/vhpl04 1541436617

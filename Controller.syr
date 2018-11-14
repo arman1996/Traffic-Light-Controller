@@ -1,0 +1,540 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.11 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.11 secs
+ 
+--> Reading design: Controller.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "Controller.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "Controller"
+Output Format                      : NGC
+Target Device                      : xc3s200-4-ft256
+
+---- Source Options
+Top Module Name                    : Controller
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 8
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "C:/Users/Xilinx Projects/Clock_Manager.vhd" in Library work.
+Architecture behavioral of Entity clock_manager is up to date.
+Compiling vhdl file "C:/Users/Xilinx Projects/Traffic_Light_Controller/Controller.vhd" in Library work.
+Entity <controller> compiled.
+Entity <controller> (Architecture <behavioral>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <Controller> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <Clock_Manager> in library <work> (architecture <behavioral>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <Controller> in library <work> (Architecture <behavioral>).
+WARNING:Xst:753 - "C:/Users/Xilinx Projects/Traffic_Light_Controller/Controller.vhd" line 130: Unconnected output port 'MS' of component 'Clock_Manager'.
+WARNING:Xst:819 - "C:/Users/Xilinx Projects/Traffic_Light_Controller/Controller.vhd" line 134: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <RST>
+Entity <Controller> analyzed. Unit <Controller> generated.
+
+Analyzing Entity <Clock_Manager> in library <work> (Architecture <behavioral>).
+Entity <Clock_Manager> analyzed. Unit <Clock_Manager> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <Clock_Manager>.
+    Related source file is "C:/Users/Xilinx Projects/Clock_Manager.vhd".
+    Found 1-bit register for signal <MS>.
+    Found 1-bit register for signal <S>.
+    Found 15-bit up counter for signal <ms_count>.
+    Found 1-bit register for signal <ms_state>.
+    Found 10-bit up counter for signal <s_count>.
+    Found 1-bit register for signal <s_state>.
+    Found 15-bit comparator less for signal <s_state$cmp_lt0000> created at line 32.
+    Found 10-bit comparator less for signal <s_state$cmp_lt0001> created at line 35.
+    Summary:
+	inferred   2 Counter(s).
+	inferred   4 D-type flip-flop(s).
+	inferred   2 Comparator(s).
+Unit <Clock_Manager> synthesized.
+
+
+Synthesizing Unit <Controller>.
+    Related source file is "C:/Users/Xilinx Projects/Traffic_Light_Controller/Controller.vhd".
+WARNING:Xst:647 - Input <PCS_B> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <PCS_D> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:646 - Signal <countTemp> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Register <AT> equivalent to <AL> has been removed
+    Register <BR> equivalent to <BL> has been removed
+    Register <BT> equivalent to <BL> has been removed
+    Register <DT> equivalent to <DR> has been removed
+    Register <PCS_A_Flag> equivalent to <PB1> has been removed
+    Found finite state machine <FSM_0> for signal <currentST>.
+    -----------------------------------------------------------------------
+    | States             | 18                                             |
+    | Transitions        | 94                                             |
+    | Inputs             | 14                                             |
+    | Outputs            | 20                                             |
+    | Clock              | ONE_S_CLK                 (rising_edge)        |
+    | Reset              | RST                       (positive)           |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | x1                                             |
+    | Power Up State     | x1                                             |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 3-bit register for signal <AL>.
+    Found 3-bit register for signal <AR>.
+    Found 3-bit register for signal <BL>.
+    Found 3-bit register for signal <CT>.
+    Found 3-bit register for signal <CR>.
+    Found 3-bit register for signal <DR>.
+    Found 1-bit register for signal <PB1>.
+    Found 1-bit register for signal <Bool>.
+    Found 2-bit register for signal <PCL_A>.
+    Found 2-bit register for signal <PCL_B>.
+    Found 2-bit register for signal <PCL_D>.
+    Found 1-bit register for signal <PC_Buzz>.
+    Found 1-bit register for signal <beenInFlowOne<0>>.
+    Found 5-bit register for signal <count>.
+    Found 5-bit adder for signal <count$share0000> created at line 173.
+    Found 5-bit comparator less for signal <currentST$cmp_lt0000> created at line 176.
+    Found 5-bit comparator less for signal <currentST$cmp_lt0001> created at line 257.
+    Found 5-bit comparator less for signal <currentST$cmp_lt0002> created at line 398.
+    Found 5-bit comparator less for signal <currentST$cmp_lt0003> created at line 486.
+    Found 5-bit comparator greatequal for signal <PC_Buzz$cmp_ge0000> created at line 193.
+    Found 5-bit comparator greatequal for signal <PC_Buzz$cmp_ge0001> created at line 189.
+    Found 5-bit comparator greatequal for signal <PC_Buzz$cmp_ge0002> created at line 176.
+    Found 5-bit comparator greatequal for signal <PCL_A$cmp_ge0000> created at line 414.
+    Found 5-bit comparator greatequal for signal <PCL_A$cmp_ge0001> created at line 398.
+    Found 5-bit comparator less for signal <PCL_B$cmp_lt0000> created at line 203.
+    Found 5-bit comparator less for signal <PCL_B$cmp_lt0001> created at line 205.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   9 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred  11 Comparator(s).
+Unit <Controller> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 1
+ 5-bit adder                                           : 1
+# Counters                                             : 2
+ 10-bit up counter                                     : 1
+ 15-bit up counter                                     : 1
+# Registers                                            : 18
+ 1-bit register                                        : 8
+ 2-bit register                                        : 3
+ 3-bit register                                        : 6
+ 5-bit register                                        : 1
+# Comparators                                          : 13
+ 10-bit comparator less                                : 1
+ 15-bit comparator less                                : 1
+ 5-bit comparator greatequal                           : 5
+ 5-bit comparator less                                 : 6
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <currentST/FSM> on signal <currentST[1:18]> with one-hot encoding.
+-----------------------------
+ State | Encoding
+-----------------------------
+ x1    | 000000000000000001
+ y1    | 000000000000000010
+ z1    | 000000000000000100
+ x2    | 000000000000001000
+ y2    | 000000000100000000
+ z2    | 000000001000000000
+ x3    | 000000000000010000
+ y3    | 000000010000000000
+ z3    | 000000100000000000
+ x4    | 000000000000100000
+ y4    | 000001000000000000
+ z4    | 000010000000000000
+ x5    | 000000000001000000
+ y5    | 000100000000000000
+ z5    | 001000000000000000
+ x6    | 000000000010000000
+ y6    | 010000000000000000
+ z6    | 100000000000000000
+-----------------------------
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 1
+# Adders/Subtractors                                   : 1
+ 5-bit adder                                           : 1
+# Counters                                             : 2
+ 10-bit up counter                                     : 1
+ 15-bit up counter                                     : 1
+# Registers                                            : 37
+ Flip-Flops                                            : 37
+# Comparators                                          : 13
+ 10-bit comparator less                                : 1
+ 15-bit comparator less                                : 1
+ 5-bit comparator greatequal                           : 5
+ 5-bit comparator less                                 : 6
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <Controller> ...
+
+Optimizing unit <Clock_Manager> ...
+WARNING:Xst:2677 - Node <Clock_Instance/MS> of sequential type is unconnected in block <Controller>.
+WARNING:Xst:2677 - Node <Clock_Instance/ms_state> of sequential type is unconnected in block <Controller>.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block Controller, actual ratio is 7.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 78
+ Flip-Flops                                            : 78
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : Controller.ngr
+Top Level Output File Name         : Controller
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 48
+
+Cell Usage :
+# BELS                             : 343
+#      GND                         : 1
+#      INV                         : 5
+#      LUT1                        : 25
+#      LUT2                        : 12
+#      LUT2_D                      : 9
+#      LUT2_L                      : 7
+#      LUT3                        : 24
+#      LUT3_D                      : 7
+#      LUT3_L                      : 11
+#      LUT4                        : 132
+#      LUT4_D                      : 16
+#      LUT4_L                      : 33
+#      MUXCY                       : 30
+#      MUXF5                       : 5
+#      VCC                         : 1
+#      XORCY                       : 25
+# FlipFlops/Latches                : 78
+#      FDC                         : 39
+#      FDCE                        : 2
+#      FDE                         : 2
+#      FDP                         : 9
+#      FDPE                        : 1
+#      FDR                         : 15
+#      FDRE                        : 10
+# Clock Buffers                    : 2
+#      BUFG                        : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 45
+#      IBUF                        : 6
+#      OBUF                        : 39
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s200ft256-4 
+
+ Number of Slices:                      147  out of   1920     7%  
+ Number of Slice Flip Flops:             78  out of   3840     2%  
+ Number of 4 input LUTs:                281  out of   3840     7%  
+ Number of IOs:                          48
+ Number of bonded IOBs:                  46  out of    173    26%  
+ Number of GCLKs:                         2  out of      8    25%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+Clock_Instance/S1                  | BUFG                   | 51    |
+Clock                              | BUFGP                  | 27    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+RST                                | IBUF                   | 51    |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 10.046ns (Maximum Frequency: 99.537MHz)
+   Minimum input arrival time before clock: 8.489ns
+   Maximum output required time after clock: 7.488ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'Clock_Instance/S1'
+  Clock period: 10.046ns (frequency: 99.537MHz)
+  Total number of paths / destination ports: 2054 / 54
+-------------------------------------------------------------------------
+Delay:               10.046ns (Levels of Logic = 5)
+  Source:            count_1 (FF)
+  Destination:       DR_2 (FF)
+  Source Clock:      Clock_Instance/S1 rising
+  Destination Clock: Clock_Instance/S1 rising
+
+  Data Path: count_1 to DR_2
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q             22   0.720   1.795  count_1 (count_1)
+     LUT2:I1->O            4   0.551   0.943  currentST_cmp_eq000011 (N84)
+     LUT4:I3->O           49   0.551   1.976  currentST_cmp_lt000111 (currentST_cmp_lt0001)
+     LUT4:I3->O            1   0.551   0.827  DR_mux0000<0>18 (DR_mux0000<0>18)
+     LUT4:I3->O            1   0.551   0.827  DR_mux0000<0>28 (DR_mux0000<0>28)
+     LUT4:I3->O            1   0.551   0.000  DR_mux0000<0>50 (DR_mux0000<0>)
+     FDP:D                     0.203          DR_2
+    ----------------------------------------
+    Total                     10.046ns (3.678ns logic, 6.368ns route)
+                                       (36.6% logic, 63.4% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'Clock'
+  Clock period: 8.128ns (frequency: 123.036MHz)
+  Total number of paths / destination ports: 705 / 64
+-------------------------------------------------------------------------
+Delay:               8.128ns (Levels of Logic = 9)
+  Source:            Clock_Instance/ms_count_3 (FF)
+  Destination:       Clock_Instance/s_count_9 (FF)
+  Source Clock:      Clock rising
+  Destination Clock: Clock rising
+
+  Data Path: Clock_Instance/ms_count_3 to Clock_Instance/s_count_9
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              2   0.720   1.216  Clock_Instance/ms_count_3 (Clock_Instance/ms_count_3)
+     LUT1:I0->O            1   0.551   0.000  Clock_Instance/Mcompar_s_state_cmp_lt0000_cy<0>_rt (Clock_Instance/Mcompar_s_state_cmp_lt0000_cy<0>_rt)
+     MUXCY:S->O            1   0.500   0.000  Clock_Instance/Mcompar_s_state_cmp_lt0000_cy<0> (Clock_Instance/Mcompar_s_state_cmp_lt0000_cy<0>)
+     MUXCY:CI->O           1   0.064   0.000  Clock_Instance/Mcompar_s_state_cmp_lt0000_cy<1> (Clock_Instance/Mcompar_s_state_cmp_lt0000_cy<1>)
+     MUXCY:CI->O           1   0.064   0.000  Clock_Instance/Mcompar_s_state_cmp_lt0000_cy<2> (Clock_Instance/Mcompar_s_state_cmp_lt0000_cy<2>)
+     MUXCY:CI->O           1   0.064   0.000  Clock_Instance/Mcompar_s_state_cmp_lt0000_cy<3> (Clock_Instance/Mcompar_s_state_cmp_lt0000_cy<3>)
+     MUXCY:CI->O           1   0.064   0.000  Clock_Instance/Mcompar_s_state_cmp_lt0000_cy<4> (Clock_Instance/Mcompar_s_state_cmp_lt0000_cy<4>)
+     MUXCY:CI->O           1   0.064   0.000  Clock_Instance/Mcompar_s_state_cmp_lt0000_cy<5> (Clock_Instance/Mcompar_s_state_cmp_lt0000_cy<5>)
+     MUXCY:CI->O          26   0.281   1.845  Clock_Instance/Mcompar_s_state_cmp_lt0000_cy<6> (Clock_Instance/Mcompar_s_state_cmp_lt0000_cy<6>)
+     LUT4:I3->O           12   0.551   1.118  Clock_Instance/s_count_and000018 (Clock_Instance/s_count_and0000)
+     FDRE:R                    1.026          Clock_Instance/s_count_0
+    ----------------------------------------
+    Total                      8.128ns (3.949ns logic, 4.179ns route)
+                                       (48.6% logic, 51.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'Clock_Instance/S1'
+  Total number of paths / destination ports: 93 / 21
+-------------------------------------------------------------------------
+Offset:              8.489ns (Levels of Logic = 6)
+  Source:            AR_Sensor (PAD)
+  Destination:       beenInFlowOne_0 (FF)
+  Destination Clock: Clock_Instance/S1 rising
+
+  Data Path: AR_Sensor to beenInFlowOne_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            10   0.821   1.473  AR_Sensor_IBUF (AR_Sensor_IBUF)
+     LUT3:I0->O            3   0.551   1.246  count_and000111 (N811)
+     LUT3:I0->O            1   0.551   0.869  beenInFlowOne_0_mux000017 (beenInFlowOne_0_mux000017)
+     LUT4_L:I2->LO         1   0.551   0.126  beenInFlowOne_0_mux000027_SW0 (N156)
+     LUT4:I3->O            1   0.551   0.996  beenInFlowOne_0_mux000027 (beenInFlowOne_0_mux000027)
+     LUT4:I1->O            1   0.551   0.000  beenInFlowOne_0_mux000048 (beenInFlowOne_0_mux0000)
+     FDC:D                     0.203          beenInFlowOne_0
+    ----------------------------------------
+    Total                      8.489ns (3.779ns logic, 4.710ns route)
+                                       (44.5% logic, 55.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'Clock_Instance/S1'
+  Total number of paths / destination ports: 39 / 39
+-------------------------------------------------------------------------
+Offset:              7.488ns (Levels of Logic = 1)
+  Source:            PB1 (FF)
+  Destination:       PB1 (PAD)
+  Source Clock:      Clock_Instance/S1 rising
+
+  Data Path: PB1 to PB1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              9   0.720   1.124  PB1 (PB1_OBUF)
+     OBUF:I->O                 5.644          PB1_OBUF (PB1)
+    ----------------------------------------
+    Total                      7.488ns (6.364ns logic, 1.124ns route)
+                                       (85.0% logic, 15.0% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 6.00 secs
+Total CPU time to Xst completion: 6.20 secs
+ 
+--> 
+
+Total memory usage is 4550092 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    7 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
+

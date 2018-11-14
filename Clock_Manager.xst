@@ -1,0 +1,5 @@
+set -tmpdir "C:/Users/Xilinx Projects/Traffic_Light_Controller/xst/projnav.tmp"
+set -xsthdpdir "C:/Users/Xilinx Projects/Traffic_Light_Controller/xst"
+elaborate
+-ifn Clock_Manager.prj
+-ifmt mixed

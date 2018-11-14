@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Users\Xilinx Projects\Traffic_Light_Controller\Controller.ncd
+OUTFILE=C:\Users\Xilinx Projects\Traffic_Light_Controller\Controller.bit
+FAMILY=Spartan3
+PART=xc3s200-4ft256
+WORKINGDIR=C:\Users\Xilinx Projects\Traffic_Light_Controller
+LICENSE=WebPack
+USER_INFO=211583206_0_0_959

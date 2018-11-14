@@ -1,0 +1,22 @@
+V3 10
+FL "C:/Users/Xilinx Projects/Clock_Manager.vhd" 2018/10/20.14:13:42 P.20131013
+EN work/Clock_Manager 1541436614 FL "C:/Users/Xilinx Projects/Clock_Manager.vhd" \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/Clock_Manager/Behavioral 1541436615 \
+      FL "C:/Users/Xilinx Projects/Clock_Manager.vhd" EN work/Clock_Manager 1541436614
+FL "C:/Users/Xilinx Projects/KomsTrafficLights/lightController.vhd" 2018/10/29.15:39:15 P.20131013
+EN work/lightController 0 \
+      FL "C:/Users/Xilinx Projects/KomsTrafficLights/lightController.vhd" \
+      PB ieee/std_logic_1164 1381692176
+AR work/lightController/Behavioral 0 \
+      FL "C:/Users/Xilinx Projects/KomsTrafficLights/lightController.vhd" \
+      EN work/lightController 0
+FL "C:/Users/Xilinx Projects/Traffic_Light_Controller/Controller.vhd" 2018/11/06.03:50:12 P.20131013
+EN work/Controller 1541436616 \
+      FL "C:/Users/Xilinx Projects/Traffic_Light_Controller/Controller.vhd" \
+      PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/Controller/Behavioral 1541436617 \
+      FL "C:/Users/Xilinx Projects/Traffic_Light_Controller/Controller.vhd" \
+      EN work/Controller 1541436616 CP Clock_Manager
